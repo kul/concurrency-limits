@@ -71,7 +71,7 @@ public final class ServletLimiterBuilder extends AbstractPartitionedLimiter.Buil
      * @return Chainable builder
      */
     public ServletLimiterBuilder partitionByPathInfo(Function<String, String> pathToGroup) {
-        return partitionResolver(request -> Optional.ofNullable(request.getPathInfo()).map(pathToGroup).orElse(null));
+        return partitionResolver(request -> Optional.ofNullable(request.getServletPath()).map(pathToGroup).orElse(null));
     }
 
     /**
@@ -129,7 +129,7 @@ public final class ServletLimiterBuilder extends AbstractPartitionedLimiter.Buil
      * @return Chainable builder
      */
     public ServletLimiterBuilder bypassLimitByPathInfo(String pathInfo) {
-        return bypassLimitResolver((context) -> pathInfo.equals(context.getPathInfo()));
+        return bypassLimitResolver((context) -> pathInfo.equals(context.getServletPath()));
     }
 
     /**

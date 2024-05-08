@@ -166,7 +166,7 @@ public class GroupServletLimiterTest {
     private HttpServletRequest createMockRequestWithPathInfo(String name) {
         HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
 
-        Mockito.when(request.getPathInfo()).thenReturn(name);
+        Mockito.when(request.getServletPath()).thenReturn(name);
         return request;
     }
 }

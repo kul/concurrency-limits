@@ -119,7 +119,7 @@ public class ConcurrencyLimitServletFilterTest {
 
         MockHttpServletRequest request = new MockHttpServletRequest();
         request.setMethod("POST");
-        request.setPathInfo("/admin/health");
+        request.setServletPath("/admin/health");
         MockHttpServletResponse response = new MockHttpServletResponse();
         MockFilterChain filterChain = new MockFilterChain();
 
